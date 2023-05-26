@@ -1,19 +1,22 @@
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="Sign In">
   </mat-tab>
-  <mat-tab label="Sign Up ">
-    <form class="signup-form" >
+  <mat-tab label="Sign Up">
+    <form class="signup-form" [formGroup]="loginForm" >
       <table class="signup-full-width" cellspacing="0"><tr>
         <td><mat-form-field appearance="outline" class="signup-full-width">
         <mat-label>First name</mat-label>
-        <input matInput required type="text">
+        <input matInput required formControlName="firstName" type="text">
+        <mat-error *ngIf="loginForm.get('firstName')?.errors?.['required']">
+         First name required
+       </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="signup-full-width">
         <mat-label>Last name</mat-label>
-        <input matInput required type="text" >
-        <!-- <mat-error *ngIf="loginFormControl.hasError('required')">
-          Last name is <strong>required</strong>
-        </mat-error> -->
+        <input matInput required type="text" formControlName="lastName" >
+        <mat-error *ngIf="loginForm.get('lastName')?.errors?.['required']">
+           Last name required
+        </mat-error>
       </mat-form-field>
     </td>
   </tr></table>
@@ -29,14 +32,20 @@
       </mat-form-field>
       <mat-form-field appearance="outline" class="signup-full-width">
         <mat-label>Mobile number</mat-label>
-        <input matInput type="number" maxlength="12" required>
+        <input matInput type="number" formControlName="phoneNumber" maxlength="12" required>
+        <mat-error *ngIf="loginForm.get('phoneNumber')?.errors?.['required']">
+         Phone Number required
+       </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="signup-full-width">
         <mat-label>Password</mat-label>
-        <input matInput type="password"  [type]="hide ? 'password' : 'text'">
+        <input matInput type="password"  formControlName="password" [type]="hide ? 'password' : 'text'">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
+        <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">
+          Password required
+       </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="signup-full-width">
         <mat-label>Re-enter Password</mat-label>
@@ -45,5 +54,7 @@
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
+      <button mat-flat-button color="primary" type="submit">Login</button>
+
     </form> </mat-tab>
 </mat-tab-group>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-vendorlogin',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class VendorloginComponent {
   hide = true;
+  loginForm = this.fb.group(
+    {
+    firstName:['', Validators.required],
+    lastName:['', Validators.required],
+    email:['', Validators.required],
+    phoneNumber:['', Validators.required],
+    companyName:['', Validators.required],
+    password:['', Validators.required]
+  });
+
+  constructor(
+    private fb: FormBuilder,
+  ){}
+
 }

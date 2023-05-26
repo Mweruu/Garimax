@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { VendorloginComponent } from './vendorlogin/vendorlogin.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { VendorsignupComponent } from './vendorsignup/vendorsignup.component';
+import { VendorComponent } from './vendor/vendor.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:'vendorsignup',
   component:VendorsignupComponent
+  },
+  {
+    path:'uploadcar',
+  component:VendorComponent
   },
 ];
 
