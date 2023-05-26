@@ -36,7 +36,7 @@ const material=[
   MatStepperModule,
   MatSelectModule,
   MatMenuModule,
-  MatGridListModule
+  MatGridListModule,
 ]
 @NgModule({
   imports:[material],

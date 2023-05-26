@@ -8,11 +8,21 @@
 <label> Price </label>
 <label> Vehicle Type </label>
 <label> Verified </label>
+<mat-radio-group aria-label="Select an option">
+  <mat-radio-button value="1">Show all</mat-radio-button>
+  <mat-radio-button value="2">Not Verified</mat-radio-button>
+  <mat-radio-button value="3">Verified</mat-radio-button>
+</mat-radio-group>
 <label> Color </label>
 <label> Foreign used </label>
 <label> Gear </label>
 <label> Mileage </label>
 <label> Condition </label>
+<h3>Condition</h3>
+<mat-button-toggle-group name="condition" aria-label="Condition">
+  <mat-button-toggle value="new">New</mat-button-toggle>
+  <mat-button-toggle value="used">Used</mat-button-toggle>
+</mat-button-toggle-group>
 <label> Engine Size </label>
 <label> Engine Power </label>
 <label> Acceleration </label>
@@ -26,3 +36,4 @@
 </mat-grid-tile>
 <mat-grid-tile>2</mat-grid-tile>
 </mat-grid-list>
+<!-- <app-footer></app-footer> -->
