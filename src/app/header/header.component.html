@@ -1,8 +1,12 @@
 <mat-toolbar color="primary" class="navbar">
   <div class="mat-display-3"> GARIMAX </div>
   <div>
-    <span>Home</span>
-    <span> Sign in or register</span>
-    <span>Sell Car</span>
+    <span class="mat-body-2" routerLinkActive="active"><a routerLink="/userlogin"> Sign in or register </a></span>
+    <!-- <span class="mat-body-2" routerLinkActive="active"><a routerLink="/vendorlogin">Sell Car</a></span> -->
+    <button mat-button [matMenuTriggerFor]="menu">Sell Car</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLinkActive="active"><a routerLink="/vendorsignup">Sign up</a></button>
+  <button mat-menu-item routerLinkActive="active"><a routerLink="/vendorlogin">Sign in</a></button>
+</mat-menu>
   </div>
 </mat-toolbar>

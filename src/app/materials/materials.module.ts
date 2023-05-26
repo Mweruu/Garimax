@@ -7,6 +7,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
 
 const material=[
   MatToolbarModule,
@@ -17,6 +26,15 @@ const material=[
   MatSlideToggleModule,
   MatButtonToggleModule,
   MatBadgeModule,
+  MatTabsModule,
+  MatProgressSpinnerModule,
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatPaginatorModule,
+  MatStepperModule,
+  MatSelectModule,
+  MatMenuModule
 ]
 @NgModule({
   imports:[material],

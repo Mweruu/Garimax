@@ -1,0 +1,49 @@
+<mat-tab-group animationDuration="0ms">
+  <mat-tab label="Sign In">
+  </mat-tab>
+  <mat-tab label="Sign Up ">
+    <form class="signup-form" >
+      <table class="signup-full-width" cellspacing="0"><tr>
+        <td><mat-form-field appearance="outline" class="signup-full-width">
+        <mat-label>First name</mat-label>
+        <input matInput required type="text">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="signup-full-width">
+        <mat-label>Last name</mat-label>
+        <input matInput required type="text" >
+        <!-- <mat-error *ngIf="loginFormControl.hasError('required')">
+          Last name is <strong>required</strong>
+        </mat-error> -->
+      </mat-form-field>
+    </td>
+  </tr></table>
+      <mat-form-field appearance="outline" class="signup-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email"  placeholder="name@example.com"  [formControl]="loginFormControl">
+        <mat-error *ngIf="loginFormControl.hasError('email') && !loginFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="loginFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="signup-full-width">
+        <mat-label>Mobile number</mat-label>
+        <input matInput type="number" maxlength="12" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="signup-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password"  [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="signup-full-width">
+        <mat-label>Re-enter Password</mat-label>
+        <input matInput type="password" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </form> </mat-tab>
+</mat-tab-group>

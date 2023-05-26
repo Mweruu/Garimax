@@ -1,0 +1,83 @@
+<mat-tab-group animationDuration="0ms">
+  <mat-tab label="As individual">
+    <form class="signup-form">
+    <mat-form-field appearance="outline" class="signup-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput required type="text">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="signup-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput required type="email">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="signup-full-width">
+      <mat-label>Id/Pasport number</mat-label>
+      <input matInput required type="number">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="signup-full-width">
+      <mat-label>Gender</mat-label>
+      <mat-select>
+        <mat-option value="one">Male</mat-option>
+        <mat-option value="two">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="signup-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password"  [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="signup-full-width">
+      <mat-label>Re-enter Password</mat-label>
+      <input matInput type="password" [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    </form>
+  </mat-tab>
+  <mat-tab label="As Company/ Business">
+    <mat-form-field appearance="outline" class="signup-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput required type="text">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="signup-full-width">
+      <mat-label>Company/ Business name</mat-label>
+      <input matInput required type="text">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="signup-full-width">
+      <mat-label>KRA pin</mat-label>
+      <input matInput required type="number">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="signup-full-width">
+      <mat-label>Phone number</mat-label>
+      <input matInput required type="number">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="signup-full-width">
+      <mat-label>Address</mat-label>
+      <input matInput required type="number">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="signup-full-width">
+      <mat-label>Location</mat-label>
+      <input matInput required type="text">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="signup-full-width">
+      <mat-label>Dealership Lisence provided by NTSA</mat-label>
+      <input matInput type="text">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="signup-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password"  [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="signup-full-width">
+      <mat-label>Re-enter Password</mat-label>
+      <input matInput type="password" [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+   </mat-tab>
+</mat-tab-group>
