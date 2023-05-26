@@ -19,4 +19,10 @@ export class HeaderComponent {
     this.firstName= 'Christine';
     this.lastName = 'Mweru';
   }
+  signOut(){
+    this.signin = false
+  }
+  signIn(){
+    this.signin = true
+  }
 }

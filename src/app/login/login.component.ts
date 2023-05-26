@@ -10,6 +10,7 @@ import {FormBuilder, FormControl, Validators} from '@angular/forms';
 })
 export class LoginComponent {
   hide = true;
+  signin = false;
   loginFormControl = new FormControl('', [Validators.required, Validators.email]);
   //   {
   //   firstName:['', Validators.required],
@@ -32,4 +33,7 @@ export class LoginComponent {
     private fb: FormBuilder,
   ){}
 
+  signIn(){
+    this.signin = true;
+  }
 }

@@ -16,6 +16,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 const material=[
   MatToolbarModule,
@@ -34,7 +35,8 @@ const material=[
   MatPaginatorModule,
   MatStepperModule,
   MatSelectModule,
-  MatMenuModule
+  MatMenuModule,
+  MatGridListModule
 ]
 @NgModule({
   imports:[material],
