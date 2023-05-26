@@ -10,7 +10,6 @@ import { UserComponent } from './user/user.component';
 import { VendorComponent } from './vendor/vendor.component';
 import { ViewComponent } from './view/view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { GARIMAXComponent } from './garimax/garimax.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MaterialsModule } from './materials/materials.module';
 
@@ -25,7 +24,6 @@ import { MaterialsModule } from './materials/materials.module';
     UserComponent,
     VendorComponent,
     ViewComponent,
-    GARIMAXComponent
   ],
   imports: [
     BrowserModule,
