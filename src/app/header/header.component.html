@@ -1,7 +1,7 @@
 <mat-toolbar color="primary" class="navbar">
-  <div class="mat-display-3"> GARIMAX </div>
+  <div class="mat-headline-5"> GARIMAX </div>
   <!-- <mat-icon>search</mat-icon> -->
-  <mat-form-field>
+  <mat-form-field appearance="fill" class="full-width">
     <mat-icon matPrefix>search</mat-icon>
     <input matInput placeholder="Search">
     <button mat-icon-button matSuffix>
@@ -13,8 +13,8 @@
     <!-- <span class="mat-body-2" routerLinkActive="active"><a routerLink="/vendorlogin">Sell Car</a></span> -->
     <button mat-button [matMenuTriggerFor]="menu">Sell Car</button>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item routerLinkActive="active"><a routerLink="/vendorsignup">Sign up</a></button>
-  <button mat-menu-item routerLinkActive="active"><a routerLink="/vendorlogin">Sign in</a></button>
+  <button mat-menu-item routerLinkActive="active"><a  class="mat-body-2" routerLink="/vendorsignup">Sign up</a></button>
+  <button mat-menu-item routerLinkActive="active"><a  class="mat-body-2" routerLink="/vendorlogin">Sign in</a></button>
 </mat-menu>
   </div>
   <div  *ngIf="signin">

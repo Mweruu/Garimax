@@ -13,9 +13,10 @@ td {
 mat-tab-group{
   align-items: center;
   padding: 100px;
-  /* padding-left: 200px;
-  width: 500px; */
 }
-/* mat-form-field{
-  margin-top: 20px;
-} */
+.mat-rounded{
+  min-width: 150px;
+  max-width: 500px;
+  padding: 20px;
+  margin: 5px;
+}

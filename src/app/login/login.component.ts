@@ -11,6 +11,7 @@ import {FormBuilder, FormControl, Validators} from '@angular/forms';
 export class LoginComponent {
   hide = true;
   signin = false;
+  clicked = false;
   loginFormControl = new FormControl('', [Validators.required, Validators.email]);
   //   {
   //   firstName:['', Validators.required],
@@ -35,5 +36,9 @@ export class LoginComponent {
 
   signIn(){
     this.signin = true;
+
+  }
+  login(){
+    this.clicked=true;
   }
 }
