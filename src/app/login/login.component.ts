@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormControl, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { DatastorageserviceService } from '../datastorageservice.service';
 
 @Component({
   selector: 'app-login',
@@ -11,34 +12,38 @@ import {FormBuilder, FormControl, Validators} from '@angular/forms';
 export class LoginComponent {
   hide = true;
   signin = false;
-  clicked = false;
+  user = {firstName:'', lastName:'',email:'',mobile:'', password:''};
   loginFormControl = new FormControl('', [Validators.required, Validators.email]);
-  //   {
-  //   firstName:['', Validators.required],
-  //   lastName:['', Validators.required],
-  //   email:['', [Validators.required, Validators.email]],
-  //   phoneNumber:['', Validators.required],
-
-  // });
-  loginForm = this.fb.group(
-    {
-    firstName:['', Validators.required],
-    lastName:['', Validators.required],
-    email:['', Validators.required],
-    phoneNumber:['', Validators.required],
-    password:['', Validators.required],
-
-  });
+  loginForm :FormGroup
 
   constructor(
     private fb: FormBuilder,
-  ){}
+    private ds: DatastorageserviceService
+  ){
+    this.loginForm =this.fb.group(
+      {
+      firstName:['', Validators.required],
+      lastName:['', Validators.required],
+      email:['', Validators.required],
+      mobile:['', Validators.required],
+      password:['', Validators.required],
 
-  signIn(){
+    });
+  }
+
+  signUp(){
+    this.ds.createUser(this.user).subscribe(
+        response => {
+          console.log('User created successfully!', response);
+          // Handle success response here
+        },
+        error => {
+          console.error('Failed to create user:', error);
+          // Handle error response here
+        }
+      );
+
     this.signin = true;
+  }
 
-  }
-  login(){
-    this.clicked=true;
-  }
 }

@@ -16,6 +16,8 @@ import { LoginComponent } from './login/login.component';
 import { VendorloginComponent } from './vendorlogin/vendorlogin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { VendorsignupComponent } from './vendorsignup/vendorsignup.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './login/register/register.component';
 
 
 
@@ -31,6 +33,7 @@ import { VendorsignupComponent } from './vendorsignup/vendorsignup.component';
     LoginComponent,
     VendorloginComponent,
     VendorsignupComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { VendorsignupComponent } from './vendorsignup/vendorsignup.component';
     BrowserAnimationsModule,
     LayoutModule,
     MaterialsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

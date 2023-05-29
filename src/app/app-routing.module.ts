@@ -5,6 +5,7 @@ import { VendorloginComponent } from './vendorlogin/vendorlogin.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { VendorsignupComponent } from './vendorsignup/vendorsignup.component';
 import { VendorComponent } from './vendor/vendor.component';
+import { RegisterComponent } from './login/register/register.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path:'userlogin',
   component:LoginComponent
+  },
+  {
+    path:'register',
+  component:RegisterComponent
   },
   {
     path:'vendorlogin',

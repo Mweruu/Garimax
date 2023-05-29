@@ -17,6 +17,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatRadioModule} from '@angular/material/radio';
 
 const material=[
   MatToolbarModule,
@@ -37,6 +38,7 @@ const material=[
   MatSelectModule,
   MatMenuModule,
   MatGridListModule,
+  MatRadioModule
 ]
 @NgModule({
   imports:[material],
