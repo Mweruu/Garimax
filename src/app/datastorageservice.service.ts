@@ -7,19 +7,22 @@ import { Observable } from 'rxjs';
 })
 export class DatastorageserviceService {
   private getUsers= 'http://localhost:8080/api/users';
-  private createUserUrl = 'http://localhost:8080/api/users/login';
-  private  userRegUrl = 'http://localhost:8080/api/users/register';
+  private userLoginUrl = 'http://localhost:8080/api/users/login';
+  private  createUserUrl = 'http://localhost:8080/api/users/register';
   user: any;
 
   constructor(private http: HttpClient) { }
 
   createUser(user: any): Observable<any> {
-    return this.http.post<any>(`${this.userRegUrl}`, user);
-  }
-  userLogin(user: any): Observable<any> {
     return this.http.post<any>(`${this.createUserUrl}`, user);
   }
-  getUser(user: any): Observable<any> {
-    return this.http.get<any>(`${this.getUsers}`, user);
+  userLogin(user: any): Observable<any> {
+    return this.http.post<any>(`${this.userLoginUrl}`, user);
   }
+  getUser(): Observable<any> {
+    return this.http.get<any>(`${this.getUsers}`);
+  }
+  createVendor(){}
+  createVehicle(){}
+  getVehicles(){}
 }

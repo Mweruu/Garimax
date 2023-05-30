@@ -17,7 +17,7 @@
     </mat-menu>
   </div>
   <div  *ngIf="signin">
-    <span  class="mat-body-2">{{firstName}} {{lastName}}</span>
+    <span  class="mat-body-2">{{ds.user?.firstName}} {{ds.user?.lastName}}</span>
     <span class="mat-body-2" routerLinkActive="active"><a routerLink="/"> <mat-icon (click)="signOut()">logout</mat-icon></a></span>
   </div>
 </mat-toolbar>

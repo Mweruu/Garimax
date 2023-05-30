@@ -1,6 +1,6 @@
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="Sign In">
-        <div mat-body-2>New here?<a>Create an account</a></div>
+        <div mat-body-2>New here?<a href="#signup">Create an account</a></div>
         <div routerLinkActive="active"><button mat-stroked-button class="mat-rounded signup-full-width" routerLink="/register">
           <mat-icon><a style="color: #3b5998;" href="#!" role="button">
             <i class="fab fa-facebook-f"></i>
@@ -22,22 +22,22 @@
         <button mat-stroked-button class="mat-rounded signup-full-width" routerLink="/register">
           <mat-icon>mail</mat-icon> Sign in with Email</button>
   </mat-tab>
-  <mat-tab label="Sign Up">
-    <form class="signup-form" [formGroup]="loginForm" >
+  <mat-tab label="Sign Up" id="signup">
+    <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="signUp()" >
       <table class="signup-full-width" cellspacing="0">
         <tr>
         <td>
           <mat-form-field appearance="outline" class="signup-full-width">
             <mat-label>First name</mat-label>
-            <input matInput required formControlName="firstName"  [(ngModel)]="user.firstName" type="text">
-            <mat-error *ngIf="loginForm.get('firstName')?.errors?.['required']">
+            <input matInput required formControlName="firstName" type="text" [(ngModel)]="user.firstName">
+            <mat-error *ngIf="signupForm.get('firstName')?.errors?.['required']">
             First name required
             </mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline" class="signup-full-width">
             <mat-label>Last name</mat-label>
-            <input matInput required type="text"  [(ngModel)]="user.lastName" formControlName="lastName" >
-            <mat-error *ngIf="loginForm.get('lastName')?.errors?.['required']">
+            <input matInput required type="text" formControlName="lastName" [(ngModel)]="user.lastName">
+            <mat-error *ngIf="signupForm.get('lastName')?.errors?.['required']">
               Last name required
             </mat-error>
           </mat-form-field>
@@ -46,39 +46,44 @@
       </table>
       <mat-form-field appearance="outline" class="signup-full-width">
         <mat-label>Email</mat-label>
-        <input matInput type="email" [(ngModel)]="user.email" placeholder="name@example.com"  [formControl]="loginFormControl">
-        <mat-error *ngIf="loginFormControl.hasError('email') && !loginFormControl.hasError('required')">
+        <input matInput type="email" placeholder="name@example.com" formControlName="email" [(ngModel)]="user.email" >
+        <mat-error *ngIf="signupForm.hasError('email') && !signupForm.hasError('required')">
           Please enter a valid email address
         </mat-error>
-        <mat-error *ngIf="loginFormControl.hasError('required')">
+        <mat-error *ngIf="signupForm.hasError('required')">
           Email is <strong>required</strong>
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="signup-full-width">
         <mat-label>Mobile number</mat-label>
-        <input matInput type="number"  [(ngModel)]="user.mobile" formControlName="mobile" maxlength="12" required>
-        <mat-error *ngIf="loginForm.get('phoneNumber')?.errors?.['required']">
+        <input matInput type="number" formControlName="mobile" maxlength="12" required [(ngModel)]="user.mobile" >
+        <mat-error *ngIf="signupForm.get('phoneNumber')?.errors?.['required']">
          Phone Number required
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="signup-full-width">
         <mat-label>Password</mat-label>
-        <input matInput type="password"  formControlName="password" [type]="hide ? 'password' : 'text'">
+        <input matInput type="password"  formControlName="password"  [(ngModel)]="user.password" [type]="hide ? 'password' : 'text'">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
-        <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">
+        <mat-error *ngIf="signupForm.get('password')?.errors?.['required']">
           Password required
        </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="signup-full-width">
         <mat-label>Re-enter Password</mat-label>
-        <input matInput type="password" [type]="hide ? 'password' : 'text'">
+        <input matInput type="password" formControlName="confirmPassword"  [(ngModel)]="user.confirmPassword" [type]="hide ? 'password' : 'text'">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
+        <mat-error *ngIf="!passwordsMatch()">
+            Passwords do not match.
+        </mat-error>
       </mat-form-field>
-      <button mat-flat-button color="primary" type="submit" (click)="signUp()" routerLink="/">Login</button>
+      <p routerLinkActive>Already have an account? <a routerLink="/register">Login</a></p>
+
+      <button mat-flat-button color="primary" type="submit" [disabled]="!passwordsMatch()">Login</button>
     </form>
   </mat-tab>
 </mat-tab-group>

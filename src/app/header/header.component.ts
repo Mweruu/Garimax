@@ -15,7 +15,7 @@ export class HeaderComponent {
   user:any;
   currentUser!: string;
 
-  constructor(private ds: DatastorageserviceService,
+  constructor(public ds: DatastorageserviceService,
               private authService: AuthService){
               this.currentUser = authService.getCurrentUser();
             }

@@ -1,0 +1,42 @@
+<p>allcars works!</p>
+<!-- <div *ngFor="let ** of ****"> -->
+    <!-- <div>{{.name}}</div>
+    <div>{{.mileage}}</div>
+    <div>{{.enginesize}} | {{.bodyType}} | {{.usage}} | {{.transmission}}</div>
+    <div>{{.name}}</div> -->
+    <!-- <mat-divider></mat-divider> -->
+    <!-- <div>{{.companyName}}</div>
+    <div>{{.Contact}}</div> -->
+<!-- </div> -->
+<!-- <mat-card class="car-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Shiba Inu</mat-card-title>
+    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card> -->
+
+<h1>User List</h1>
+  <div *ngFor="let user of users">
+    <mat-card class="car-card">
+      <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+      <mat-card-content>
+        <span>{{ user.firstName }} {{ user.lastName }}</span><br>
+        <!-- <mat-divider></mat-divider> -->
+        <span>{{ user.email }}</span>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa, similique voluptatibus incidunt exercitationem dolores non natus, cupiditate nihil, blanditiis commodi! Commodi accusamus consectetur molestias laboriosam beatae impedit voluptatum qui!</p>
+      </mat-card-content>
+    </mat-card>
+  </div>

@@ -7,3 +7,7 @@ form{
 .signup-full-width{
   width: 100%;
 }
+.alert-top {
+  top: 0;
+  bottom: auto;
+}

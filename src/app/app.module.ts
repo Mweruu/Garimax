@@ -12,12 +12,14 @@ import { ViewComponent } from './view/view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MaterialsModule } from './materials/materials.module';
-import { LoginComponent } from './login/login.component';
-import { VendorloginComponent } from './vendorlogin/vendorlogin.component';
+import { LoginComponent } from './user/login/login.component';
+import { VendorloginComponent } from './vendor/vendorlogin/vendorlogin.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { VendorsignupComponent } from './vendorsignup/vendorsignup.component';
+import { VendorsignupComponent } from './vendor/vendorsignup/vendorsignup.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RegisterComponent } from './login/register/register.component';
+import { RegisterComponent } from './user/register/register.component';
+import { AllcarsComponent } from './vendor/allcars/allcars.component';
+import { CarpropertiesComponent } from './vendor/carproperties/carproperties.component';
 
 
 
@@ -34,6 +36,8 @@ import { RegisterComponent } from './login/register/register.component';
     VendorloginComponent,
     VendorsignupComponent,
     RegisterComponent,
+    AllcarsComponent,
+    CarpropertiesComponent
   ],
   imports: [
     BrowserModule,
