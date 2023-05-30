@@ -1,0 +1,89 @@
+<mat-tab-group animationDuration="0ms">
+  <mat-tab label="Sign In">
+        <div mat-body-2>New here?<a href="#signup">Create an account</a></div>
+        <div routerLinkActive="active"><button mat-stroked-button class="mat-rounded signup-full-width" routerLink="/register">
+          <mat-icon><a style="color: #3b5998;" href="#!" role="button">
+            <i class="fab fa-facebook-f"></i>
+          </a></mat-icon>
+          Sign in with Facebook
+        </button></div>
+        <button mat-stroked-button class="mat-rounded signup-full-width" routerLink="/register">
+          <mat-icon><a style="color: #fd0b0b;" href="#!" role="button">
+            <i class="fab fa-google"></i>
+          </a></mat-icon>
+          Sign in with Google
+        </button>
+        <button mat-stroked-button class="mat-rounded signup-full-width" routerLink="/register">
+          <mat-icon><a style="color: #0c0c0c;" href="#!" role="button">
+            <i class="fab fa-apple"></i>
+          </a></mat-icon>
+          Sign in with Apple
+        </button>
+        <button mat-stroked-button class="mat-rounded signup-full-width" routerLink="/register">
+          <mat-icon>mail</mat-icon> Sign in with Email</button>
+  </mat-tab>
+  <mat-tab label="Sign Up" id="signup">
+    <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="signUp()" >
+      <table class="signup-full-width" cellspacing="0">
+        <tr>
+        <td>
+          <mat-form-field appearance="outline" class="signup-full-width">
+            <mat-label>First name</mat-label>
+            <input matInput required formControlName="firstName" type="text" [(ngModel)]="user.firstName">
+            <mat-error *ngIf="signupForm.get('firstName')?.errors?.['required']">
+            First name required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="signup-full-width">
+            <mat-label>Last name</mat-label>
+            <input matInput required type="text" formControlName="lastName" [(ngModel)]="user.lastName">
+            <mat-error *ngIf="signupForm.get('lastName')?.errors?.['required']">
+              Last name required
+            </mat-error>
+          </mat-form-field>
+        </td>
+        </tr>
+      </table>
+      <mat-form-field appearance="outline" class="signup-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="name@example.com" formControlName="email" [(ngModel)]="user.email" >
+        <mat-error *ngIf="signupForm.hasError('email') && !signupForm.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="signupForm.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="signup-full-width">
+        <mat-label>Mobile number</mat-label>
+        <input matInput type="number" formControlName="mobile" maxlength="12" required [(ngModel)]="user.mobile" >
+        <mat-error *ngIf="signupForm.get('phoneNumber')?.errors?.['required']">
+         Phone Number required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="signup-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password"  formControlName="password"  [(ngModel)]="user.password" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="signupForm.get('password')?.errors?.['required']">
+          Password required
+       </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="signup-full-width">
+        <mat-label>Re-enter Password</mat-label>
+        <input matInput type="password" formControlName="confirmPassword"  [(ngModel)]="user.confirmPassword" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="!passwordsMatch()">
+            Passwords do not match.
+        </mat-error>
+      </mat-form-field>
+      <p routerLinkActive>Already have an account? <a routerLink="/register">Login</a></p>
+
+      <button mat-flat-button color="primary" type="submit" [disabled]="!passwordsMatch()">Login</button>
+    </form>
+  </mat-tab>
+</mat-tab-group>

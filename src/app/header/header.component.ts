@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { DatastorageserviceService } from '../datastorageservice.service';
 // import {MatTableDataSource} from '@angular/material';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,11 +12,17 @@ export class HeaderComponent {
   signin = false;
   firstName!:any;
   lastName!:any;
+  user:any;
+  currentUser!: string;
 
-  constructor(){}
+  constructor(public ds: DatastorageserviceService,
+              private authService: AuthService){
+              this.currentUser = authService.getCurrentUser();
+            }
 
   async ngOnInit(){
     this.names()
+    // this.signIn()
   }
   names(){
     this.firstName= 'Christine';
@@ -27,3 +35,4 @@ export class HeaderComponent {
     this.signin = true
   }
 }
+
