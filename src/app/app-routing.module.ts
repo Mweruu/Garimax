@@ -6,6 +6,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { VendorsignupComponent } from './vendor/vendorsignup/vendorsignup.component';
 import { VendorComponent } from './vendor/vendor.component';
 import { RegisterComponent } from './user/register/register.component';
+import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path:'uploadcar',
   component:VendorComponent
+  },
+  {
+    path:'view',
+  component:ViewComponent
   },
 ];
 

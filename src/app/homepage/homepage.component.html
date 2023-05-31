@@ -1,5 +1,5 @@
 <app-header></app-header>
-<mat-grid-list  cols="11" rowHeight="1900" gutterSize="10px">
+<!-- <mat-grid-list  cols="11" rowHeight="1900" gutterSize="10px" [scrollLeft]="true">
   <mat-grid-tile class="properties" colspan="3">
     <app-carproperties></app-carproperties>
 </mat-grid-tile>
@@ -12,5 +12,13 @@
               [pageSize]="10"
               [pageSizeOptions]="[5, 10, 25, 100]"
               aria-label="Select page">
-</mat-paginator>
-<app-footer></app-footer>
+</mat-paginator> -->
+<div class="row">
+  <div class="col-3 sm-3 md-3 lg-3 xl-3 ">
+    <app-carproperties></app-carproperties>
+  </div>
+  <div class="col-8 sm-8 md-8 lg-8 xl-8 ">
+    <app-allcars></app-allcars>
+  </div>
+</div>
+<!-- <app-footer></app-footer> -->

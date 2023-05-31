@@ -9,6 +9,7 @@ import { DatastorageserviceService } from '../datastorageservice.service';
 })
 export class VendorComponent implements OnInit{
   users: any[] = [];
+  files: File[] = [];
 
 
   firstFormGroup = this._formBuilder.group({
@@ -27,6 +28,15 @@ export class VendorComponent implements OnInit{
     this.allUsers()
   }
 
+  onSelect(event: { addedFiles: any; }) {
+    console.log(event);
+    this.files.push(...event.addedFiles);
+  }
+
+  onRemove(event: File) {
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
+  }
   uploadCar(){
     this.ds.createVehicle()
     // .subscribe(

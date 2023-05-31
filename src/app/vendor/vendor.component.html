@@ -1,109 +1,226 @@
+<app-header></app-header>
 <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
   {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
 </button> -->
-<mat-stepper [linear]="isLinear" #stepper animationDuration="0ms" (ngSubmit)="uploadCar()">
+<mat-stepper [linear]="isLinear" #stepper animationDuration="0ms" (ngSubmit)="uploadCar()" class="col-10" style="padding: 100px;">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>BASIC INFO</ng-template>
-      <mat-form-field appearance="fill" class="m-2">
-        <mat-label> Make</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let user of users" [value]="user.firstName">{{ user.firstName }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="fill" class="m-2">
-        <mat-label> Model</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let user of users" [value]="user.lastName">{{ user.lastName }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="fill" class="m-2">
-        <mat-label> Location</mat-label>
-        <mat-select>
-          <mat-option value="">BMW</mat-option>
-          <mat-option value=""></mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="fill" class="m-2">
-        <mat-label> Year of manufacture</mat-label>
-        <!-- <div class="row">
-          <mat-checkbox class="form-label">Min Year</mat-checkbox> -->
-          <mat-select>
-            <mat-option value=""></mat-option>
-            <mat-option value=""></mat-option>
-          </mat-select>
-          <!-- <mat-checkbox class="form-label">Max Year</mat-checkbox> -->
-          <!-- <mat-select>
-            <mat-option value=""></mat-option>
-            <mat-option value=""></mat-option>
-          </mat-select> -->
-        <!-- </div> -->
-      </mat-form-field>
-      <mat-form-field appearance="fill" class="m-2">
-        <mat-label> Mileage(km)</mat-label>
-        <mat-select>
-          <mat-option value=""></mat-option>
-          <mat-option value=""></mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="fill" class="m-2">
-        <mat-label> Car Location</mat-label>
-        <mat-select>
-          <mat-option value=""></mat-option>
-          <mat-option value=""></mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="fill" class="m-2">
-        <mat-label>Selling Price(Ksh.) </mat-label>
-        <mat-select>
-          <mat-option value="">BMW</mat-option>
-          <mat-option value=""></mat-option>
-        </mat-select>
-      </mat-form-field>
-          <div>
-            <button mat-button matStepperNext>Next</button>
-          </div>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field appearance="fill" class="m-2">
+            <mat-label> Make</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let user of users" [value]="user.firstName">{{ user.firstName }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="m-2">
+            <mat-label> Model</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let user of users" [value]="user.lastName">{{ user.lastName }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="m-2">
+            <mat-label> Location</mat-label>
+            <mat-select>
+              <mat-option value="">BMW</mat-option>
+              <mat-option value=""></mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="m-2">
+            <mat-label> Year of manufacture</mat-label>
+            <!-- <div class="row">
+              <mat-checkbox class="form-label">Min Year</mat-checkbox> -->
+              <mat-select>
+                <mat-option value=""></mat-option>
+                <mat-option value=""></mat-option>
+              </mat-select>
+              <!-- <mat-checkbox class="form-label">Max Year</mat-checkbox> -->
+              <!-- <mat-select>
+                <mat-option value=""></mat-option>
+                <mat-option value=""></mat-option>
+              </mat-select> -->
+            <!-- </div> -->
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="m-2">
+            <mat-label> Mileage(km)</mat-label>
+            <mat-select>
+              <mat-option value=""></mat-option>
+              <mat-option value=""></mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="m-2">
+            <mat-label> Car Location</mat-label>
+            <mat-select>
+              <mat-option value=""></mat-option>
+              <mat-option value=""></mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="m-2">
+            <mat-label>Selling Price(Ksh.) </mat-label>
+            <mat-select>
+              <mat-option value="">BMW</mat-option>
+              <mat-option value=""></mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-6 border border-black">
+            <h3 class="m-2">Guide on how to upload info</h3>
+        </div>
+      </div>
+      <div>
+        <button mat-button matStepperNext style="width: 1130px; margin-top: 10px;">Next</button>
+      </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup" label="UPLOAD PICTURE">
     <form [formGroup]="secondFormGroup">
-        <input type="file" class="file-upload" onchange="console.log(event.target.files)">
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+      <div class="row">
+        <div class="col-7 border border-black">
+          <ngx-dropzone (change)="onSelect($event)" class="dropzone">
+            <ngx-dropzone-label >Drag and drop</ngx-dropzone-label>
+            <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+            </ngx-dropzone-image-preview>
+          </ngx-dropzone>
+          <div class="choose-file">
+          <h1>or</h1>
+          <input  type="file" class="file-upload" onchange="console.log(event.target.files)">
+        </div></div>
+        <div class="col-4 border border-black guide">
+          <h3>How to upload car images to sell faster</h3>
+          <ul>
+            <li>The first image is your representative picture. For better illustration, you should choose the landscape image with clear front-rear exterior view.</li>
+            <li>Exterior: Car Front, Body, Rear, Back, Engine...</li>
+            <li>Interior: Dashboard, Seat, ...</li>
+            <li>SHOULD NOT:</li>
+            <li>Use images from the internet</li>
+            <li>Insert phone number, website, logo </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 10px;">
+        <button mat-button matStepperPrevious style="width: 550px;">Back</button>
+        <button mat-button matStepperNext style="width: 550px;">Next</button>
       </div>
     </form>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>CAR DETAILS</ng-template>
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field appearance="outline" class="full-width">
+        <input matInput required formControlName="" type="text" value="">
+        </mat-form-field><br>
+        <div class="row">
+          <div class="col">
+        <mat-form-field appearance="fill">
+          <mat-label> Fuel Type</mat-label>
+          <mat-select>
+            <mat-option value=""></mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+        <div class="col">
+        <mat-form-field appearance="fill">
+          <mat-label> Body Type</mat-label>
+          <mat-select>
+            <mat-option value=""></mat-option>
+          </mat-select>
+        </mat-form-field><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+        <mat-form-field appearance="fill">
+          <mat-label> Transmission </mat-label>
+          <mat-select>
+            <mat-option value=""></mat-option>
+          </mat-select>
+        </mat-form-field>
+        </div>
+        <div class="col">
+        <mat-form-field appearance="fill">
+          <mat-label> Color</mat-label>
+          <mat-select>
+            <mat-option value=""></mat-option>
+          </mat-select>
+        </mat-form-field><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+        <mat-form-field appearance="fill">
+          <mat-label> Steering(LHD/RHD)</mat-label>
+          <mat-select>
+            <mat-option value=""></mat-option>
+          </mat-select>
+        </mat-form-field>
+        </div>
+        <div class="col">
+        <mat-form-field appearance="fill">
+          <mat-label> Engine (cc)</mat-label>
+          <mat-select>
+            <mat-option value=""></mat-option>
+          </mat-select>
+        </mat-form-field><br>
+        </div>
+        </div>
+      <div class="row">
+        <div class="col">
+        <mat-form-field appearance="fill">
+          <mat-label> Drive Type</mat-label>
+          <mat-select>
+            <mat-option value=""></mat-option>
+          </mat-select>
+        </mat-form-field>
+        </div>
+        <div class="col">
+        <p>Duty Paid</p>
+        </div>
+        </div>
+        <textarea  rows="15" cols="60">Description</textarea>
+        <button type="submit" class="btn btn-success" style="width: 500px; padding-top: 10px;">Finish</button>
+      </div>
+      <div class="col-6 ">
       <p><strong>Car Options and Accesories</strong></p>
-        <mat-checkbox class="m-2">Wheelchair accessible vehicles(WAV)</mat-checkbox>
-        <mat-checkbox class="m-2"> 3-Row Seat </mat-checkbox>
-        <mat-checkbox class="m-2"> A/C </mat-checkbox>
-        <mat-checkbox class="m-2"> ABS </mat-checkbox>
-        <mat-checkbox class="m-2"> Aero Parts </mat-checkbox>
-        <mat-checkbox class="m-2"> Aftermarket Alloy Wheels </mat-checkbox>
-        <mat-checkbox class="m-2"> Aftermarket Meffler </mat-checkbox>
-        <mat-checkbox class="m-2"> Aftermarket Speaker </mat-checkbox>
-        <mat-checkbox class="m-2"> Airbag </mat-checkbox>
-        <mat-checkbox class="m-2"> Alloy Wheels </mat-checkbox>
-        <mat-checkbox class="m-2"> Always Garaged </mat-checkbox>
-        <mat-checkbox class="m-2"> AM/FM </mat-checkbox>
-        <mat-checkbox class="m-2"> Anti-theft System </mat-checkbox>
-        <mat-checkbox class="m-2"> Around View Camera </mat-checkbox>
-        <mat-checkbox class="m-2"> Audio System </mat-checkbox>
-        <mat-checkbox class="m-2"> Back Camera </mat-checkbox>
-        <mat-checkbox class="m-2"> Back Sensor </mat-checkbox>
-        <mat-checkbox class="m-2"> Back Tire </mat-checkbox>
-        <mat-checkbox class="m-2"> Basic Equipment </mat-checkbox>
-        <mat-checkbox class="m-2"> Bench Seat </mat-checkbox>
-        <mat-checkbox class="m-2"> Body Kit </mat-checkbox>
-        <mat-checkbox class="m-2"> Box Truck </mat-checkbox>
-        <mat-checkbox class="m-2"> Bucket Seat </mat-checkbox>
+      <div class="row border border-black">
+        <div class="col-6">
+          <mat-checkbox class="m-2">Wheelchair accessible vehicles(WAV)</mat-checkbox><br>
+          <mat-checkbox class="m-2"> 3-Row Seat </mat-checkbox><br>
+          <mat-checkbox class="m-2"> A/C </mat-checkbox><br>
+          <mat-checkbox class="m-2"> ABS </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Aero Parts </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Aftermarket Alloy Wheels </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Aftermarket Meffler </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Aftermarket Speaker </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Airbag </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Alloy Wheels </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Always Garaged </mat-checkbox><br>
+          <mat-checkbox class="m-2"> AM/FM </mat-checkbox><br>
+        </div>
+        <div class="col-6">
+          <mat-checkbox class="m-2"> Anti-theft System </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Around View Camera </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Audio System </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Back Camera </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Back Sensor </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Back Tire </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Basic Equipment </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Bench Seat </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Body Kit </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Box Truck </mat-checkbox><br>
+          <mat-checkbox class="m-2"> Bucket Seat </mat-checkbox><br>
+        </div>
+        <p>*If your car has other accesories, write in the selling point section on the left. </p>
+      </div>
+      <button mat-flat-button type="submit" style="width: 500px;">Finish</button>
+      </div>
+  </div>
+
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
       </div>
-      <button mat-flat-button  type="submit">Finish</button>
   </mat-step>
 </mat-stepper>

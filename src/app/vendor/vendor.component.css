@@ -1,0 +1,14 @@
+.dropzone{
+  background-color: ghostwhite;
+  padding: 100px;
+  margin-top: 50px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.choose-file{
+  padding: 100px;
+  padding-top: 10px;
+}
+.guide{
+  margin-left: 30px;
+}

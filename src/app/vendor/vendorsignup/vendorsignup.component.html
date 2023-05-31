@@ -1,24 +1,24 @@
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="As individual">
-    <form class="signup-form" [formGroup]="loginForm">
+    <form class="signup-form" [formGroup]="individualLoginForm">
     <mat-form-field appearance="outline" class="signup-full-width">
       <mat-label>Name</mat-label>
       <input matInput formControlName="name" required type="text">
-      <mat-error *ngIf="loginForm.get('name')?.errors?.['required']">
+      <mat-error *ngIf="individualLoginForm.get('name')?.errors?.['required']">
         Name required
      </mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" class="signup-full-width">
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" required type="email">
-      <mat-error *ngIf="loginForm.get('email')?.errors?.['required']">
+      <mat-error *ngIf="individualLoginForm.get('email')?.errors?.['required']">
         Email required
      </mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" class="signup-full-width">
       <mat-label>Id/Pasport number</mat-label>
       <input matInput formControlName="idnumber" required type="number">
-      <mat-error *ngIf="loginForm.get('idnumber')?.errors?.['required']">
+      <mat-error *ngIf="individualLoginForm.get('idnumber')?.errors?.['required']">
         Id/Pasport number required
      </mat-error>
     </mat-form-field>
@@ -35,7 +35,7 @@
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
-      <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">
+      <mat-error *ngIf="individualLoginForm.get('password')?.errors?.['required']">
         Password required
      </mat-error>
     </mat-form-field>
@@ -46,7 +46,7 @@
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
     </mat-form-field>
-    <button mat-flat-button color="primary" type="submit"> Create Account </button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="individualLoginForm.invalid"> Create Account </button>
 
     </form>
   </mat-tab>
@@ -68,7 +68,7 @@
     </mat-form-field>
     <mat-form-field appearance="outline" class="signup-full-width">
       <mat-label>KRA pin</mat-label>
-      <input matInput formControlName="krapin" required type="password">
+      <input matInput formControlName="krapin" required type="password" [type]="hide ? 'password' : 'text'">
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
@@ -85,7 +85,10 @@
     </mat-form-field>
     <mat-form-field appearance="outline" class="signup-full-width">
       <mat-label>Address</mat-label>
-      <input matInput required type="number">
+      <input matInput required type="number" formControlName="address">
+      <mat-error *ngIf="loginForm.get('address')?.errors?.['required']">
+        Location required
+     </mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" class="signup-full-width">
       <mat-label>Location</mat-label>
@@ -94,10 +97,12 @@
         Location required
      </mat-error>
     </mat-form-field>
-    <mat-form-field appearance="outline" class="signup-full-width">
+    <!-- <mat-form-field appearance="outline" class="signup-full-width">
       <mat-label>Dealership Lisence provided by NTSA</mat-label>
       <input matInput type="text">
-    </mat-form-field>
+    </mat-form-field> -->
+    <mat-checkbox class="m-2" [(ngModel)]="checkboxChecked">Dealership Lisence provided by NTSA</mat-checkbox>
+    <input *ngIf="checkboxChecked" class="m-2" type="file" class="file-upload" onchange="console.log(event.target.files)">
     <mat-form-field appearance="outline" class="signup-full-width">
       <mat-label>Password</mat-label>
       <input matInput type="password" formControlName="password" [type]="hide ? 'password' : 'text'">
@@ -115,7 +120,7 @@
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
     </mat-form-field>
-    <button mat-flat-button color="primary" type="submit"> Create Account </button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="loginForm.invalid"> Create Account </button>
   </form>
    </mat-tab>
 </mat-tab-group>

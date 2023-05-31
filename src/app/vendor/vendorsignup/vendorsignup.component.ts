@@ -8,17 +8,24 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class VendorsignupComponent {
   hide = true;
-  loginForm = this.fb.group(
-    {
-    name:['', Validators.required],
-    email:['', Validators.required],
-    idnumber:['', Validators.required],
-    password:['', Validators.required],
-    phoneNumber:['', Validators.required],
-    companyName:['', Validators.required],
-    location:['', Validators.required],
-    krapin:['', Validators.required],
+  checkboxChecked: boolean = false;
+  individualLoginForm = this.fb.group({
+                    name:['', Validators.required],
+                    email:['', Validators.required],
+                    idnumber:['', Validators.required],
+                    password:['', Validators.required],
+                  });
+  loginForm = this.fb.group({
+                  email:['', Validators.required],
+                  companyName:['', Validators.required],
+                  krapin:['', Validators.required],
+                  phoneNumber:['', Validators.required],
+                  address:['', Validators.required],
+                  location:['', Validators.required],
+                  password:['', Validators.required],
   });
+
+
   constructor( private fb:FormBuilder){}
 
 }

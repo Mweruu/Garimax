@@ -8,12 +8,14 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class VendorloginComponent {
   hide = true;
+  individualLoginForm = this.fb.group(
+    {
+    email:['', Validators.required],
+    password:['', Validators.required]
+  });
   loginForm = this.fb.group(
     {
-    firstName:['', Validators.required],
-    lastName:['', Validators.required],
     email:['', Validators.required],
-    phoneNumber:['', Validators.required],
     companyName:['', Validators.required],
     password:['', Validators.required]
   });

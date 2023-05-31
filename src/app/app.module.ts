@@ -14,12 +14,13 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MaterialsModule } from './materials/materials.module';
 import { LoginComponent } from './user/login/login.component';
 import { VendorloginComponent } from './vendor/vendorlogin/vendorlogin.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VendorsignupComponent } from './vendor/vendorsignup/vendorsignup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './user/register/register.component';
 import { AllcarsComponent } from './vendor/allcars/allcars.component';
 import { CarpropertiesComponent } from './vendor/carproperties/carproperties.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 
 
@@ -46,9 +47,11 @@ import { CarpropertiesComponent } from './vendor/carproperties/carproperties.com
     LayoutModule,
     MaterialsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxDropzoneModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [AllcarsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,11 @@
+.reset{
+  all: revert;
+  width: 100px;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  margin-left: 0px;
+}
+
+.form-field{
+  width: 250px;
+}

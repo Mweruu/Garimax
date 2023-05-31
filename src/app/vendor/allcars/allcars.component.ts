@@ -1,5 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { DatastorageserviceService } from 'src/app/datastorageservice.service';
+
+
+export interface userElement {
+  firstName: string;
+  LastName: string;
+  email: string;
+  mobile: number;
+  password:string;
+}
+
+let Data: userElement[] = [];
+
 
 @Component({
   selector: 'app-allcars',
@@ -10,6 +23,7 @@ export class AllcarsComponent implements OnInit {
   fetched = false;
   vehicles: any;
   users:any;
+  dataSource = new MatTableDataSource(Data);
 
   constructor(
     private ds:DatastorageserviceService
@@ -18,6 +32,11 @@ export class AllcarsComponent implements OnInit {
   ngOnInit(): void {
     this.allVehicles()
     this.allUsers()
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   allVehicles(){
@@ -44,6 +63,7 @@ export class AllcarsComponent implements OnInit {
         console.log(users.user);
         this.users = users.user;
         this.fetched = true
+        Data=this.users;
 
       },
       (error) => {

@@ -2,7 +2,7 @@
   <div class="mat-headline-5"> GARIMAX </div>
   <mat-form-field appearance="fill" class="full-width">
     <mat-icon matPrefix>search</mat-icon>
-    <input matInput placeholder="Search">
+    <input matInput  (keyup)="allcars.applyFilter($event)" placeholder="Search" #input>
     <button mat-icon-button matSuffix>
       <mat-icon>close</mat-icon>
     </button>
@@ -21,3 +21,6 @@
     <span class="mat-body-2" routerLinkActive="active"><a routerLink="/"> <mat-icon (click)="signOut()">logout</mat-icon></a></span>
   </div>
 </mat-toolbar>
+<tr class="mat-row" *matNoDataRow>
+  <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+</tr>

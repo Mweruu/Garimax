@@ -7,10 +7,12 @@
   width: 100%;
 }
 mat-tab-group{
+  align-items: center;
   padding: 100px;
-  padding-left: 200px;
-  width: 500px;
+  /* padding-left: 200px; */
+  /* width: 500px; */
 }
 mat-form-field{
-  margin-top: 20px;
+  margin-top: 10px;
+  width:350px;
 }
